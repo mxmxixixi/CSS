@@ -378,3 +378,44 @@
   - 只有相邻边才会相交，对边是不可能相交的;
   - 相交区域(显然是矩形)按对角线划分成两个三角形，两个三角形分别渲染成两个边的颜色，颜色不会出现重叠的情况;
   - 调整四个边的宽度，加上中间区域的宽度，配以不同颜色和透明，各种简单多边形(举一反三)已经不在话下了
+
+- 文本溢出显示...
+
+  - 单行文本隐藏
+
+    ```javascript
+    overflow: hidden;//超出隐藏
+    text-overflow: ellipsis;//文本超出显示...
+    white-space: nowrap;//超出的空白区域不换行
+    ```
+
+  - 多行文本隐藏
+
+    ```javascript
+    //只兼容webkit内核的浏览器
+    display: -webkit-box;             /*将对象转为弹性盒模型展示*/
+    -webkit-box-orient: vertical;     /*设置弹性盒模型子元素的排列方式*/
+    -webkit-line-clamp: 2;            /*限制文本行数*/
+    overflow: hidden;                 /*超出隐藏*/
+    ```
+
+    ```javascript
+    //跨浏览器兼容+伪元素定位
+    .text-box3 p{
+        position: relative;
+        line-height: 1.4em;        /*行高和height成倍数，这里以三行文本超出隐藏举例*/
+        height: 4.2em;
+        overflow: hidden;
+    }
+    .text-box3 p::after{         /*若要兼容IE8需用:after*/
+        content: "...";          /*替换内容比较灵活*/
+        position: absolute;
+        bottom: 2px;
+        right:5px;
+        padding: 0 3px;
+        background:#fff;         /*颜色和文字背景保持一致*/
+        box-shadow: 0 0 10px #fff;  /*边缘处理*/
+    }
+    ```
+
+    
