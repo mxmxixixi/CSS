@@ -418,4 +418,25 @@
     }
     ```
 
-    
+- 滚动条样式修改
+
+  ```javascript
+  .demo{
+    //滚动条的轨道的类名
+    &::-webkit-scrollbar{
+      width: 8px;
+    }
+    //滚动条的轨道的类名
+    &::-webkit-scrollbar-track {
+      background-color: #1f2150;
+      border-radius: 5px;
+    }
+   	//滚动条的滑块的类名
+    &::-webkit-scrollbar-thumb {
+      background-color: #2d3075;
+      border-radius: 5px;
+    }
+  }
+  ```
+
+  
