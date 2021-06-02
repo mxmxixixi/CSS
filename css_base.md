@@ -439,4 +439,11 @@
   }
   ```
 
+- 图片尺寸变形
+
+  ```javascript
+  可以对图片进行裁剪
+  object-fit: cover;
+  ```
+
   
